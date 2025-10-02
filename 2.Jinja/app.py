@@ -8,6 +8,22 @@ def hello():
     li = [10,20,30]
     return render_template('index.html',name=value, list=li)
 
+@app.route("/filters")
+def filterPage():
+    return render_template("filters.html",some_text="random text argument")
+
+# creating a custom filter for jinja
+@app.template_filter('reverse_string')
+def reverse_string(s):
+    return s[::-1]
+
+@app.template_filter('repeat_string')
+def repeat(s,times):
+    return s*times
+
+@app.template_filter("alternate_case")
+def alternate_case(s):
+    return "".join([c.upper() if i%2==0 else c.lower() for i,c in enumerate(s)])
 
 if __name__=="__main__":
     app.run(host='0.0.0.0',port=8000,debug=True)
