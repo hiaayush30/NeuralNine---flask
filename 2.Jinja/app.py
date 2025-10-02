@@ -8,7 +8,7 @@ def hello():
     li = [10,20,30]
     return render_template('index.html',name=value, list=li)
 
-@app.route("/filters")
+@app.route("/filters2")
 def filtersPage():
     return render_template("filters.html",some_text="random text argument")
 
