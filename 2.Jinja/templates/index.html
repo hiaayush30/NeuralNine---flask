@@ -17,4 +17,9 @@
 Hello User!
 {%endif%}
 
+<!-- Dynamic URLs -->
+<!-- the name in url is that of the function of the intended route -->
+<!-- it will automatically change the route to which the fn belongs -->
+<a href="{{ url_for('filtersPage') }}">Go to filters Page</a>
+
 {%endblock%}

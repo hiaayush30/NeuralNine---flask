@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,redirect,url_for
 
 app = Flask(__name__,template_folder='templates')
 
@@ -9,7 +9,7 @@ def hello():
     return render_template('index.html',name=value, list=li)
 
 @app.route("/filters")
-def filterPage():
+def filtersPage():
     return render_template("filters.html",some_text="random text argument")
 
 # creating a custom filter for jinja
@@ -24,6 +24,10 @@ def repeat(s,times):
 @app.template_filter("alternate_case")
 def alternate_case(s):
     return "".join([c.upper() if i%2==0 else c.lower() for i,c in enumerate(s)])
+
+@app.route('/redirect_endpoint')
+def redirect_endpoint():
+    return redirect(url_for('filtersPage'))
 
 if __name__=="__main__":
     app.run(host='0.0.0.0',port=8000,debug=True)
