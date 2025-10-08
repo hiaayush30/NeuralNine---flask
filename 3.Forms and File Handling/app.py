@@ -28,7 +28,13 @@ def upload():
             return {"msg": f"hello there {username}"}
         else:
             return {"error": "Invalid request"}
+        
 
+@app.route("/upload/file",methods=["POST"])
+def upload_file():
+    print(request.form)
+    print(request.files)
+    return ""
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)

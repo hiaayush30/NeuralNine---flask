@@ -9,9 +9,15 @@
 
 <body>
     <form method="post" action="{{  url_for('index')  }}">
-        <input type="text" name="username" placeholder="username" /><br/>
-        <input type="text" name="password" placeholder="password" /><br/>
+        <input type="text" name="username" placeholder="username" /><br />
+        <input type="text" name="password" placeholder="password" /><br />
         <input type="submit" value="Login" />
+    </form>
+    <h1>Form to upload file</h1>
+    <form method="post" action="{{  url_for('upload_file')  }}" enctype="multipart/form-data">
+        <input type="text" name="username" placeholder="username" /><br />
+        <input type="file" accept="application/pdf, application/vnd.ms-excel, text/plain" />
+        <input type="submit" value="submit" />
     </form>
 </body>
 
